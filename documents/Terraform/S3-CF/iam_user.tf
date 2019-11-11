@@ -44,7 +44,7 @@ resource "aws_iam_user_policy" "test_policy" {
         "s3:PutObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::test-bucket-11111111/*"
+      "Resource": "arn:aws:s3:::${var.s3_bucket}/*"
     },
     {
       "Sid": "Stmt1573498256130",
@@ -53,7 +53,7 @@ resource "aws_iam_user_policy" "test_policy" {
         "s3:ListBucket"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::test-bucket-11111111"
+      "Resource": "arn:aws:s3:::${var.s3_bucket}"
     },
     {
       "Sid": "Stmt1573498308381",
