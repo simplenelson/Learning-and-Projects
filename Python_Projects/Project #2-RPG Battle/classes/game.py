@@ -13,7 +13,7 @@ class bcolors:
 
 
 class Person:
-    def __init__(self, hp, mp, atk, df, magic):
+    def __init__(self, hp, mp, atk, df, magic, item):
         self.maxhp = hp
         self.hp = hp
         self.maxmp = mp
@@ -21,7 +21,8 @@ class Person:
         self.atkl = atk - 10
         self.atkh = atk + 10
         self.magic = magic
-        self.actions = ['Attack!', 'Magic!']
+        self.actions = ['Attack!', 'Magic!', "Items"]
+        self.item = item
     
     def generate_dmg(self):
         return random.randrange(self.atkl, self.atkh)
@@ -56,12 +57,19 @@ class Person:
         i = 1
         print('Actions')
         for item in self.actions:
-            print(str(i) + ':', item)
+            print('    ' + str(i) + ':', item)
             i += 1
 
     def choose_magic(self):
         i = 1
         print('Magic')
         for spell in self.magic:
-            print(str(i) + ':', spell.name, "(cost:", str(spell.cost) + ")")
+            print('    ' + str(i) + ':', spell.name, "(cost:", str(spell.cost) + ")")
+            i += 1
+
+    def choose_item(self):
+        i = 1
+        print ('Item')
+        for item in self.item:
+            print('    ' + str(i) + ':', item.name, "(description:", item.description + ")")
             i += 1
